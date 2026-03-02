@@ -1,4 +1,4 @@
-# Seika Innovation — Diagram Design Specification
+# Mini Mattia — Diagram Design Specification
 
 ## Canvas
 - viewBox: "0 0 900 600"

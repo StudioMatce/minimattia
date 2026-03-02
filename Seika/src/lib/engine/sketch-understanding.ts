@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { DiagramGraph } from "@/lib/types/diagram";
 
-const SYSTEM_PROMPT = `You are a diagram structure analyzer for "Seika", a tool that converts rough sketches into polished, brand-compliant diagrams.
+const SYSTEM_PROMPT = `You are a diagram structure analyzer for "Mini Mattia", a tool that converts rough sketches into polished, brand-compliant diagrams.
 
 Given a sketch image or tldraw shape data, extract the diagram structure as a JSON object.
 

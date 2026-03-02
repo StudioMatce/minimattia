@@ -44,7 +44,7 @@
 ### 2026-02-27 - Pivot: From Compliance Tool to Generative Tool
 
 **Type:** decision
-**Summary:** Fundamental product redefinition. Seika is NOT a compliance/analysis tool that tells consultants "your visual is wrong." It IS a generative tool: consultant draws a rough sketch → system generates a polished, brand-compliant visual. The output is the finished visual, not a report. This changes every layer: Inference becomes sketch understanding (not violation detection), Interpretation becomes interactive preview (not fix list), Delivery becomes side-by-side canvas + generated output with export (not compliance scores). The compliance checking becomes an internal quality gate inside the generation pipeline, not a user-facing feature.
+**Summary:** Fundamental product redefinition. Mini Mattia is NOT a compliance/analysis tool that tells consultants "your visual is wrong." It IS a generative tool: consultant draws a rough sketch → system generates a polished, brand-compliant visual. The output is the finished visual, not a report. This changes every layer: Inference becomes sketch understanding (not violation detection), Interpretation becomes interactive preview (not fix list), Delivery becomes side-by-side canvas + generated output with export (not compliance scores). The compliance checking becomes an internal quality gate inside the generation pipeline, not a user-facing feature.
 **EIID Layer:** all
 **Action:** CLAUDE.md rewritten to reflect generative core loop. Previous compliance-focused phases are superseded. New phases below.
 

@@ -43,7 +43,7 @@ export async function sketchToSvg(
   const exampleSvg = loadFile("example-output.svg");
   const refImage = loadImageBase64("style-reference.png");
 
-  const systemPrompt = `You convert rough hand-drawn sketches into polished SVG diagrams for Seika Innovation.
+  const systemPrompt = `You convert rough hand-drawn sketches into polished SVG diagrams for Mini Mattia.
 
 ABSOLUTE RULES — NEVER BREAK THESE:
 
@@ -85,7 +85,7 @@ Output ONLY SVG code. Start with <svg, end with </svg>. No markdown, no code fen
   if (refImage) {
     content.push({
       type: "text",
-      text: "This is a real slide from Seika Innovation. Your SVG output must look like it belongs in this presentation:",
+      text: "This is a real slide from Mini Mattia. Your SVG output must look like it belongs in this presentation:",
     });
     content.push({
       type: "image",
@@ -100,7 +100,7 @@ Output ONLY SVG code. Start with <svg, end with </svg>. No markdown, no code fen
   // Add the sketch
   content.push({
     type: "text",
-    text: "Convert this sketch into a polished Seika Innovation SVG. Match the style exactly. Preserve layout, connections, and paths:",
+    text: "Convert this sketch into a polished Mini Mattia SVG. Match the style exactly. Preserve layout, connections, and paths:",
   });
   content.push({
     type: "image",

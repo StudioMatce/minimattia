@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import { appendFileSync } from "fs";
 import { join } from "path";
-import { recraftGenerateSvg, SEIKA_COLORS_LIGHT, SEIKA_COLORS_DARK } from "./recraft";
+import { recraftGenerateSvg, BRAND_COLORS_LIGHT, BRAND_COLORS_DARK } from "./recraft";
 
 function log(msg: string) {
   const line = `[${new Date().toISOString()}] ${msg}\n`;
@@ -76,7 +76,7 @@ Output ONLY the final generation prompt from Step 4.`,
 }
 
 /**
- * Step 2: Generate SVG via Recraft using the sketch description + Seika style.
+ * Step 2: Generate SVG via Recraft using the sketch description + brand style.
  */
 export async function sketchToVector(
   sketchBase64: string,
@@ -89,7 +89,7 @@ export async function sketchToVector(
 
   // Step 2: Build the Recraft prompt
   const modeLabel = mode === "dark" ? "dark background" : "light background";
-  const colors = mode === "dark" ? SEIKA_COLORS_DARK : SEIKA_COLORS_LIGHT;
+  const colors = mode === "dark" ? BRAND_COLORS_DARK : BRAND_COLORS_LIGHT;
 
   const prompt = `Professional consulting diagram, ${modeLabel}, organic style: shapes are ellipses/circles with thin dashed outlines, one element has a green glow accent, small dot markers scattered as accents, connections are smooth thin curved lines, clean minimalist aesthetic with generous whitespace. ${description}`;
 

@@ -105,14 +105,14 @@ export async function recraftGenerateSvg(
   return svgRes.text();
 }
 
-// Seika brand colors as RGB for Recraft color hints
-export const SEIKA_COLORS_LIGHT = [
+// Brand colors as RGB for Recraft color hints
+export const BRAND_COLORS_LIGHT = [
   { r: 235, g: 238, b: 228 }, // #EBEEE4 background
   { r: 28, g: 45, b: 40 },    // #1C2D28 primary
   { r: 0, g: 166, b: 125 },   // #00A67D accent
 ];
 
-export const SEIKA_COLORS_DARK = [
+export const BRAND_COLORS_DARK = [
   { r: 28, g: 45, b: 40 },    // #1C2D28 background
   { r: 235, g: 238, b: 228 }, // #EBEEE4 strokes
   { r: 0, g: 166, b: 125 },   // #00A67D accent

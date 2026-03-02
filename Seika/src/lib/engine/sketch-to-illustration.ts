@@ -450,7 +450,7 @@ async function generateSvg(
 
   // Style references
   parts.push({
-    text: `Style reference images (Seika Innovation brand, ${mode} mode):`,
+    text: `Style reference images (Mini Mattia brand, ${mode} mode):`,
   });
   for (const ref of refs) {
     parts.push({ inlineData: { mimeType: "image/png", data: ref } });

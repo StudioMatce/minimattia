@@ -1,4 +1,4 @@
-# Seika Innovation — Illustration Design Specification
+# Mini Mattia — Illustration Design Specification
 
 ## Canvas
 - viewBox: "0 0 900 600"
