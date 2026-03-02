@@ -105,6 +105,7 @@ export async function exportSvgToPptx(
 
 function processFlat(
   svg: Element,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   slide: any, pres: any,
   tx: (v: number) => number, ty: (v: number) => number,
   ts: (v: number) => number, tp: (px: number) => number,

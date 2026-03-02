@@ -3,6 +3,7 @@ import type { AddPathFn, CoordFn, ScaleFn } from "./pptx-types";
 
 export function processGroups(
   groups: Element[],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   slide: any, pres: any,
   vbW: number, vbH: number,
   tx: CoordFn, ty: CoordFn, ts: ScaleFn, tp: ScaleFn,
