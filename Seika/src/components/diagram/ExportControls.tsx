@@ -23,19 +23,30 @@ export function ExportControls({
   }
 
   function downloadPng() {
-    // Client-side SVG to PNG conversion
-    const svgBlob = new Blob([svgContent], { type: "image/svg+xml" });
+    // Parse viewBox to get intended dimensions (width/height may be stripped)
+    const vbMatch = svgContent.match(/viewBox=["']([^"']+)["']/);
+    const vb = vbMatch ? vbMatch[1].split(/[\s,]+/).map(Number) : null;
+    const svgW = vb ? vb[2] : 900;
+    const svgH = vb ? vb[3] : 600;
+
+    // Inject explicit width/height so the Image renders at the correct size
+    const sized = svgContent.replace(
+      /<svg([^>]*)>/,
+      `<svg$1 width="${svgW}" height="${svgH}">`
+    );
+
+    const svgBlob = new Blob([sized], { type: "image/svg+xml" });
     const url = URL.createObjectURL(svgBlob);
     const img = new Image();
 
     img.onload = () => {
       const scale = 2;
       const canvas = document.createElement("canvas");
-      canvas.width = img.width * scale;
-      canvas.height = img.height * scale;
+      canvas.width = svgW * scale;
+      canvas.height = svgH * scale;
       const ctx = canvas.getContext("2d")!;
       ctx.scale(scale, scale);
-      ctx.drawImage(img, 0, 0);
+      ctx.drawImage(img, 0, 0, svgW, svgH);
       URL.revokeObjectURL(url);
 
       canvas.toBlob((blob) => {
@@ -52,6 +63,11 @@ export function ExportControls({
     img.src = url;
   }
 
+  async function downloadPptx() {
+    const { exportSvgToPptx } = await import("@/lib/export/svg-to-pptx");
+    await exportSvgToPptx(svgContent, `${projectName}.pptx`);
+  }
+
   return (
     <div className="flex items-center gap-2">
       <Button variant="outline" size="sm" onClick={downloadSvg}>
@@ -61,6 +77,10 @@ export function ExportControls({
       <Button variant="outline" size="sm" onClick={downloadPng}>
         <Download className="mr-2 h-4 w-4" />
         PNG
+      </Button>
+      <Button variant="outline" size="sm" onClick={downloadPptx}>
+        <Download className="mr-2 h-4 w-4" />
+        PPTX
       </Button>
     </div>
   );
